@@ -2,16 +2,16 @@ package com.ctountzis.healthtrak;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 
+import com.ctountzis.healthtrak.models.HealthCalculator;
 import com.parse.ParseUser;
 
 public class HealthIndicatorActivity extends Activity {
 
 	private ImageView lightsIndicator;
-	
 	private ParseUser currentUser;
+	private HealthCalculator healthCalculator;
 	
 	public void onCreate(Bundle savedInstanceState) {
 	       super.onCreate(savedInstanceState);
@@ -20,6 +20,8 @@ public class HealthIndicatorActivity extends Activity {
 	       currentUser = ParseUser.getCurrentUser();
 	       
 	       lightsIndicator = (ImageView) findViewById(R.id.lights_indicator);
+	       
+	       healthCalculator = new HealthCalculator(currentUser);
 	       
 	       setHealthLightIndicator();
 	}
@@ -30,12 +32,20 @@ public class HealthIndicatorActivity extends Activity {
 	}
 	
 	private void setHealthLightIndicator() {
-		int bmi = Integer.parseInt(currentUser.get("bmi").toString());
-		if(bmi < 18 )
-			lightsIndicator.setImageResource(R.drawable.light_average);
-		else if(bmi >= 19 && bmi < 25)
-			lightsIndicator.setImageResource(R.drawable.light_healthy);
-		else
-			lightsIndicator.setImageResource(R.drawable.light_unhealthy);
+		int healthStatus = healthCalculator.currentHealth();
+		switch(healthStatus) {
+			case 0:
+				lightsIndicator.setImageResource(R.drawable.light_average);
+				break;
+			case 1:
+				lightsIndicator.setImageResource(R.drawable.light_healthy);
+				break;
+			case 2:
+				lightsIndicator.setImageResource(R.drawable.light_unhealthy);
+				break;
+			default:
+				lightsIndicator.setImageResource(R.drawable.light_average);
+				break;
+		}
 	}
 }

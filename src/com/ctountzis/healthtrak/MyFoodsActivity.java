@@ -76,9 +76,13 @@ public class MyFoodsActivity extends Activity {
 		      if (e != null) {
 		    	  Toast.makeText(MyFoodsActivity.this, "Couldn't load list of foods", Toast.LENGTH_SHORT).show();
 		      } else {
-		        for (ParseObject food : foodList) {
-		        	foodListAdapter.add(listAdapterStringFor(food));
-		        }
+		    	  if(foodList.size() == 0) {
+		    		  foodListAdapter.add("No foods found");
+		    	  } else {
+		    		  for (ParseObject food : foodList) {
+		    			  foodListAdapter.add(listAdapterStringFor(food));
+		    		  }
+		    	  }
 		      }
 		    }
 		});
