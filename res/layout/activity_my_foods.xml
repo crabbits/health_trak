@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sadd_new_food_button"
+        android:layout_centerInParent="true"
+        android:visibility="visible" >
+        
+      	<ListView
+	        android:id="@+id/food_list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill_vertical"
+	        android:layout_marginBottom="50dp"
+	        android:scrollbars="vertical" >  
+	    </ListView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/new_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/food_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/food_name_label" />
+
+        <EditText
+            android:id="@+id/food_name_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/food_name_label"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/calories_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/food_name_field"
+            android:text="@string/calories_label" />
+
+        <EditText
+            android:id="@+id/calories_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calories_label"
+            android:ems="10"
+            android:inputType="numberSigned" />
+
+        <TextView
+            android:id="@+id/fat_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calories_field"
+            android:text="@string/fat_label" />
+
+        <EditText
+            android:id="@+id/fat_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fat_label"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fat_field"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/save_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_button_text" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel_button_text" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/add_new_food_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/add_new_food" />
+
+</RelativeLayout>

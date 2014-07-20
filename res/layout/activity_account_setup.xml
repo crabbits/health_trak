@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+    
+     	<ImageView     
+     	    android:id="@+id/imageView1"
+        	android:layout_width="80dp"
+        	android:layout_height="80dp"
+        	android:layout_alignParentLeft="true"
+        	android:layout_alignParentTop="true"
+        	android:src="@drawable/logo" />
+
+    	<TextView
+    	    android:id="@+id/welcome_header"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_centerVertical="true"
+    	    android:layout_toRightOf="@+id/imageView1"
+    	    android:text="@string/welcome_header"
+    	    android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:text="@string/welcome_message" />
+
+    <TextView
+        android:id="@+id/bmi_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/bmi_label" />
+        
+    <EditText
+        android:id="@+id/bmi_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bmi_label"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="numberSigned" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/account_setup_go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bmi_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/account_setup_go" />
+
+
+  
+</RelativeLayout>
